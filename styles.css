@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+body{
+    display: grid;
+    font-size: 16px;
+    font-family: 'Anton', sans-serif;
+    background-color: #6f6f6f;
+}
+
+/* <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"> */
+
+.gameboard{
+    display: grid;
+    grid-template-columns: .9fr .9fr .9fr .9fr .9fr .9fr;
+    grid-template-rows: .9fr .9fr .9fr .9fr .9fr .9fr;
+    column-gap: 5px;
+    row-gap: 5px;
+    text-align: center;
+    grid-template-areas:
+    [row1-start] "CatA CatB CatC CatD CatE CF" [row1-end]
+    [row2-start] "1A 1B 1C 1D 1E 1F" [row2-end]
+    [row3-start] "2A 2B 2C 2D 2E 2F" [row3-end]
+    [row4-start] "3A 3B 3C 3D 3E 3F" [row4-end]
+    [row5-start] "4A 4B 4C 4D 4E 4F" [row5-end]
+    [row6-start] "5A 5B 5C 5D 5E 5F" [row6-end];
+    min-width: 1vw;
+    
+}
+/* category titles */
+.catA{
+    grid-area: Cat1;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 1;
+    grid-row: 1;
+    
+}
+
+.catB{
+    grid-area: Cat2;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 2;
+    grid-row: 1;
+    
+}
+.catC{
+    grid-area: Cat3;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 3;
+    grid-row: 1;
+    
+}
+.catD{
+    grid-area: Cat4;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 4;
+    grid-row: 1;
+    
+}
+.catE{
+    grid-area: Cat5;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 5;
+    grid-row: 1;
+    
+}
+.catF{
+    grid-area: Cat6;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 6;
+    grid-row: 1;
+    
+}
+/* Row 1 */
+.Row1A{
+    grid-area: 1A;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 1;
+    grid-row: 2;
+    
+}
+
+.Row1B{
+    grid-area: 1B;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 2;
+    grid-row: 2;
+    
+}
+.Row1C{
+    grid-area: 1C;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 3;
+    grid-row: 2;
+    
+}
+.Row1D{
+    grid-area: 1D;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 4;
+    grid-row: 2;
+    
+}
+.Row1E{
+    grid-area: 1E;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 5;
+    grid-row: 2;
+    
+}
+.Row1F{
+    grid-area: 1F;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 6;
+    grid-row: 2;
+    
+}
+/* Row 2 */
+.Row2A{
+    grid-area: 2A;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 1;
+    grid-row: 3;
+    
+}
+
+.Row2B{
+    grid-area: 2B;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 2;
+    grid-row: 3;
+    
+}
+.Row2C{
+    grid-area: 2C;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 3;
+    grid-row: 3;
+    
+}
+.Row2D{
+    grid-area: 2D;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 4;
+    grid-row: 3;
+    
+}
+.Row2E{
+    grid-area: 2E;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 5;
+    grid-row: 3;
+    
+}
+.Row2F{
+    grid-area: 2F;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 6;
+    grid-row: 3;
+    
+}
+/* Row 3 */
+
+.Row3A{
+    grid-area: 3A;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 1;
+    grid-row: 4;
+    
+}
+.Row3B{
+    grid-area: 3B;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 2;
+    grid-row: 4;
+    
+}
+.Row3C{
+    grid-area: 3C;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 3;
+    grid-row: 4;
+    
+}
+.Row3D{
+    grid-area: 3D;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 4;
+    grid-row: 4;
+    
+}
+.Row3E{
+    grid-area: 3E;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 5;
+    grid-row: 4;
+    
+}
+.Row3F{
+    grid-area: 3F;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 6;
+    grid-row: 4;
+    
+}
+/* Row 4 */
+.Row4A{
+    grid-area: 4A;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 1;
+    grid-row: 5;
+    
+}
+.Row4B{
+    grid-area: 4B;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 2;
+    grid-row: 5;
+    
+}
+.Row4C{
+    grid-area: 4C;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 3;
+    grid-row: 5;
+    
+}
+.Row4D{
+    grid-area: 4D;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 4;
+    grid-row: 5;
+    
+}
+.Row4E{
+    grid-area: 4E;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 5;
+    grid-row: 5;
+    
+}
+.Row4F{
+    grid-area: 4F;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 6;
+    grid-row: 5;
+    
+}
+/* Row 5 */
+.Row5A{
+    grid-area: 5A;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 1;
+    grid-row: 6;
+    
+}
+.Row5B{
+    grid-area: 5B;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 2;
+    grid-row: 6;
+    
+}
+.Row5C{
+    grid-area: 5C;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 3;
+    grid-row: 6;
+    
+}
+.Row5D{
+    grid-area: 5D;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 4;
+    grid-row: 6;
+    
+}
+.Row5E{
+    grid-area: 5E;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 5;
+    grid-row: 6;
+    
+}
+.Row5F{
+    grid-area: 5F;
+    text-transform: uppercase;
+    background-color: #fff;
+    grid-column: 6;
+    grid-row: 6;
+    
+}
+header{
+    text-align: center;
+    color: #979797;
+
+}
+
+header h1{
+    
+    font-size: 5rem;
+    text-align: center;
+    margin-top: 2.5rem;
+}
+header h2{
+    font-size: 2rem;
+    text-align: center;
+    margin-top: .5rem;
+}
+header img{
+    border: 10px solid black;
+    align-self: center;
+}
+.player-input{
+    text-transform: uppercase;
+    padding: 1rem;
+    font-size: 1.5rem;
+    margin: auto;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    text-align: center;
+    box-sizing: border-box;
+    border: 2px solid black;
+    background: #afafaf;
+    color: #3f3f3f;
+    min-width: 30rem;
+}
+.guess{
+    box-sizing: border-box;
+    border: 2px solid black;
+    min-width: 38rem;
+}
+.pass{
+    box-sizing: border-box;
+    border: 2px solid black;
+    width: 14rem;
+}
+.player-buttons{
+    text-transform: uppercase;
+    text-align: center;
+    
+}
+.guess, .pass{
+    display: inline;
+    font-size: 1.5rem;
+    background: #afafaf;
+    color: #3f3f3f;
+    
+}
+.scores{
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 1rem;
+    
+}
+.p1score, .p2score{
+    text-transform: uppercase;
+    display: inline;
+    color: #95a9a6;
+    font-size: 1.2rem;
+    
+}
+.p2score{
+    padding-left: 20rem;
+}
+.round-advance{
+    text-transform: uppercase;
+    justify-self: right;
+    box-sizing: border-box;
+    border: 2px solid #2e4a46;
+    background-color: #53706c;
+    
+}
+.game-start{
+    text-transform: uppercase;
+    justify-self: center;
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 5rem;
+    border: 2px solid #2e4a46;
+    background-color: #53706c;
+}
+.round-advance a, .game-start a{
+    text-decoration: none;
+    color: #2e4a46;
+}
+Footer{
+    text-transform: uppercase;
+    box-sizing: border-box;
+    border: 2px solid #979797;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 50px;
+    min-width: 533px;
+    max-height: 56px;
+    color: #95a9a6;
+}
+span{
+    display: inline-block;
+    min-width: 14.555rem;
+}
+
+.final{
+    text-transform: uppercase;
+    box-sizing: border-box;
+    border: 2px solid #979797;
+    text-align: center;
+    font-size: 2rem;
+    margin: auto;
+    margin-top: 3rem;
+    background-color: #575757;
+    min-width: 533px;
+    max-height: 72px;
+    color: black;  
+    margin-bottom: 2rem;
+}
+
+.final-question{
+    text-transform: uppercase;
+    box-sizing: border-box;
+    text-align: center;
+    border: 2px solid #979797;
+    background-color: #575757;
+    font-size: 1.5rem;
+    margin: auto;
+    margin-top: 2rem;
+    max-width: 30rem;
+    min-height: 15rem;
+    margin-bottom: 2rem;
+
+}
