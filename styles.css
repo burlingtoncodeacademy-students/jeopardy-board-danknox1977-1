@@ -353,7 +353,7 @@ header img{
     font-size: 1.5rem;
     margin: auto;
     margin-top: .5rem;
-    margin-bottom: .5rem;
+    margin-bottom: 2rem;
     text-align: center;
     box-sizing: border-box;
     border: 2px solid black;
@@ -361,15 +361,26 @@ header img{
     color: #3f3f3f;
     min-width: 30rem;
 }
+.player-input:hover{
+    color: #dfdfdf;
+
+}
 .guess{
     box-sizing: border-box;
     border: 2px solid black;
-    min-width: 38rem;
+    width: 14rem;
+}
+.guess:hover{
+    background-image: url('Hwhaaah.jpg');
 }
 .pass{
     box-sizing: border-box;
     border: 2px solid black;
     width: 14rem;
+}
+.pass:hover{
+    background-color: black;
+    color: black;
 }
 .player-buttons{
     text-transform: uppercase;
@@ -377,10 +388,12 @@ header img{
     
 }
 .guess, .pass{
-    display: inline;
+    
     font-size: 1.5rem;
     background: #afafaf;
     color: #3f3f3f;
+    padding: .5rem;
+    margin-top: 2rem;
     
 }
 .scores{
@@ -403,8 +416,8 @@ header img{
     text-transform: uppercase;
     justify-self: right;
     box-sizing: border-box;
-    border: 2px solid #2e4a46;
-    background-color: #53706c;
+    border: 2px solid #505353;
+    background-color: #717978;
     
 }
 .game-start{
@@ -415,12 +428,12 @@ header img{
     margin-top: 2rem;
     margin-bottom: 2rem;
     width: 5rem;
-    border: 2px solid #2e4a46;
-    background-color: #53706c;
+    border: 2px solid #505353;
+    background-color: #717978;
 }
 .round-advance a, .game-start a{
     text-decoration: none;
-    color: #2e4a46;
+    color: #282929;
 }
 Footer{
     text-transform: uppercase;
@@ -428,8 +441,9 @@ Footer{
     border: 2px solid #979797;
     text-align: center;
     margin: auto;
+    margin-top: 4rem;
     margin-bottom: 50px;
-    min-width: 533px;
+    min-width: 30rem;
     max-height: 56px;
     color: #95a9a6;
 }
@@ -447,7 +461,7 @@ span{
     margin: auto;
     margin-top: 3rem;
     background-color: #575757;
-    min-width: 533px;
+    min-width: 30rem;
     max-height: 72px;
     color: black;  
     margin-bottom: 2rem;
@@ -466,4 +480,62 @@ span{
     min-height: 15rem;
     margin-bottom: 2rem;
 
+}
+@media only screen and (min-width: 375px){
+    img{
+        max-width: 75%;
+        margin: auto;
+    }
+    Footer{
+        max-width: 65%;
+    }
+    .game-start{
+        font-size: 2em;
+        width: 7rem;
+    }
+    .p2score{
+        padding-left: 0rem;
+    }
+    .pass{
+        display: block;
+        margin:auto;
+        margin-top: 1rem;
+        text-align: center;
+    }
+    .guess{
+        display: block;
+        margin: auto;
+        width: 14rem;
+        text-align: center;
+        background-repeat: no-repeat;
+    }
+    .round-advance{font-size: 1.75em;
+        width: 10rem;
+        padding: .5rem;
+
+
+    }
+    .scores{
+        margin-bottom: 1rem;
+    }
+    .gameboard{
+        grid-template-columns: .5fr .5fr .5fr .5fr .5fr .5fr;
+        grid-template-rows: .9fr .9fr .9fr .9fr .9fr .9fr;
+    }
+}
+@media only screen and (min-width: 700px){
+    .game-start{
+        font-size: 1.5em;
+        width: 5rem;
+    }
+    .p2score{
+        padding-left: 10rem;}
+        
+    .guess, .pass{
+            display: inline;
+    }
+    .gameboard{
+        grid-template-columns: .7fr .7fr .7fr .7fr .7fr .7fr;
+        grid-template-rows: .9fr .9fr .9fr .9fr .9fr .9fr;
+    }
 }
