@@ -10,7 +10,7 @@
   </head>
   <body>
     <Header>
-        <h1>Round 2</h1>
+        <h1>Round <span id="round-num">2</span></h1>
             <h2>Player Turn</h2>  
 </Header>
 <div class="gameboard">
@@ -21,47 +21,47 @@
     <div class="catE">Ice Free Ports</div>
     <div class="catF">Grim Truth</div>   
          
-    <div class="Row1A q 2200 Nature">₽200</div>
-    <div class="Row1B q 2200 Animals">₽200</div>
-    <div class="Row1C q 2200 Computers">₽200</div>
-    <div class="Row1D q 2200 Mythology">₽200</div>
-    <div class="Row1E q 2200 History">₽200</div>
-    <div class="Row1F q 2200 General">₽200</div>
+    <div class="Row1A.2 q r1 c1">₽200</div>
+    <div class="Row1B.2 q r1 c2">₽200</div>
+    <div class="Row1C.2 q r1 c3">₽200</div>
+    <div class="Row1D.2 q r1 c4">₽200</div>
+    <div class="Row1E.2 q r1 c5">₽200</div>
+    <div class="Row1F.2 q r1 c6">₽200</div>
 
-    <div class="Row2A q 2400 Nature">₽400</div>
-    <div class="Row2B q 2400 Animals">₽400</div>
-    <div class="Row2C q 2400 Computers">₽400</div>
-    <div class="Row2D q 2400 Mythology">₽400</div>
-    <div class="Row2E q 2400 History">₽400</div>
-    <div class="Row2F q 2400 General">₽400</div>
+    <div class="Row2A.2 q r2 c1">₽400</div>
+    <div class="Row2B.2 q r2 c2">₽400</div>
+    <div class="Row2C.2 q r2 c3">₽400</div>
+    <div class="Row2D.2 q r2 c4">₽400</div>
+    <div class="Row2E.2 q r2 c5">₽400</div>
+    <div class="Row2F.2 q r2 c6">₽400</div>
 
-    <div class="Row3A q 2600 Nature">₽600</div>
-    <div class="Row3B q 2600 Animals">₽600</div>
-    <div class="Row3C q 2600 Computers">₽600</div>
-    <div class="Row3D q 2600 Mythology">₽600</div>
-    <div class="Row3E q 2600 History">₽600</div>
-    <div class="Row3F q 2600 General">₽600</div>
+    <div class="Row3A.2 q r3 c1">₽600</div>
+    <div class="Row3B.2 q r3 c2">₽600</div>
+    <div class="Row3C.2 q r3 c3">₽600</div>
+    <div class="Row3D.2 q r3 c4">₽600</div>
+    <div class="Row3E.2 q r3 c5">₽600</div>
+    <div class="Row3F.2 q r3 c6">₽600</div>
 
-    <div class="Row4A q 2800 Nature">₽800</div>
-    <div class="Row4B q 2800 Animals">₽800</div>
-    <div class="Row4C q 2800 Computers">₽800</div>
-    <div class="Row4D q 2800 Mythology">₽800</div>
-    <div class="Row4E q 2800 History">₽800</div>
-    <div class="Row4F q 2800 General">₽800</div>
+    <div class="Row4A.2 q r4 c1">₽800</div>
+    <div class="Row4B.2 q r4 c2">₽800</div>
+    <div class="Row4C.2 q r4 c3">₽800</div>
+    <div class="Row4D.2 q r4 c4">₽800</div>
+    <div class="Row4E.2 q r4 c5">₽800</div>
+    <div class="Row4F.2 q r4 c6">₽800</div>
 
-    <div class="Row5A q 3000 Nature">₽1000</div>
-    <div class="Row5B q 3000 Animals">₽1000</div>
-    <div class="Row5C q 3000 Computers">₽1000</div>
-    <div class="Row5D q 3000 Mythology">₽1000</div>
-    <div class="Row5E q 3000 History">₽1000</div>
-    <div class="Row5F q 3000 General">₽1000</div>
+    <div class="Row5A.2 q r5 c1">₽1000</div>
+    <div class="Row5B.2 q r5 c2">₽1000</div>
+    <div class="Row5C.2 q r5 c3">₽1000</div>
+    <div class="Row5D.2 q r5 c4">₽1000</div>
+    <div class="Row5E.2 q r5 c5">₽1000</div>
+    <div class="Row5F.2 q r5 c6">₽1000</div>
 
 </div>
 
-<div class="player-input"><span>User Input</span></div>
+<div class="player-input"><input>User Input</input></div>
 <div class="player-buttons">
-<div class="guess"><span>Guess</span></div>
-<div class="pass"><span>Pass</span></div>
+  <button id="guess"><span>Guess</span></button>
+  <button id="pass"><span>Pass</span></button>
 </div>
 <div class="scores">
     <div class="p1score"><span>Player 1 Score:0</span></div>
