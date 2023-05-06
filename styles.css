@@ -365,20 +365,20 @@ header img{
     color: #dfdfdf;
 
 }
-.guess{
+#guess{
     box-sizing: border-box;
     border: 2px solid black;
     width: 14rem;
 }
-.guess:hover{
-    background-image: url('Hwhaaah.jpg');
+#guess:hover{
+    background-image: url('jeopardyproject\jeopardy-board-danknox1977-1\assets\Hwhaaah.jpg');
 }
-.pass{
+#pass{
     box-sizing: border-box;
     border: 2px solid black;
     width: 14rem;
 }
-.pass:hover{
+#pass:hover{
     background-color: black;
     color: black;
 }
@@ -387,7 +387,7 @@ header img{
     text-align: center;
     
 }
-.guess, .pass{
+#guess, #pass{
     
     font-size: 1.5rem;
     background: #afafaf;
@@ -435,15 +435,16 @@ header img{
     text-decoration: none;
     color: #282929;
 }
-Footer{
+footer{
+    position: fixed;
+    bottom: 0;
     text-transform: uppercase;
     box-sizing: border-box;
     border: 2px solid #979797;
     text-align: center;
     margin: auto;
-    margin-top: 4rem;
-    margin-bottom: 50px;
-    min-width: 30rem;
+    
+    min-width: 100%;
     max-height: 56px;
     color: #95a9a6;
 }
@@ -496,13 +497,13 @@ span{
     .p2score{
         padding-left: 0rem;
     }
-    .pass{
+    #pass{
         display: block;
         margin:auto;
         margin-top: 1rem;
         text-align: center;
     }
-    .guess{
+    #guess{
         display: block;
         margin: auto;
         width: 14rem;
@@ -531,7 +532,7 @@ span{
     .p2score{
         padding-left: 10rem;}
         
-    .guess, .pass{
+    #guess, #pass{
             display: inline;
     }
     .gameboard{
