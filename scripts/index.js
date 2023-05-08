@@ -2,11 +2,20 @@
 import placeholderQuestions from "./placeholder-questions.js";
 console.log({ placeholderQuestions });
 
-// let currentPlayer = p1
 
-// let p1
 
-// let p2
+let currentPlayer = "player1";
+
+
+
+//switch player function
+function switchPlayer() {
+  if (currentPlayer === "player1") {
+  currentPlayer = "player2"
+  } else {
+    currentPlayer = "player1"
+  }
+}
 
 //Variables for gameboard cards round 1 Nature (column 1)
 const q1r1c1 = document.getElementsByClassName("q1 r1 c1");
@@ -92,9 +101,16 @@ const q2r3c6 = document.getElementsByClassName("q2 r3 c6");
 const q2r4c6 = document.getElementsByClassName("q2 r4 c6");
 const q2r5c6 = document.getElementsByClassName("q2 r5 c6");
 
-
 //variable to grab round number from .html pages
 const round = document.getElementById("round-num").innerText;
+
+//variable to declare player1score
+let player1score = document.getElementById("player1score").innerText;
+player1score = 0;
+
+//variable to declare player2score
+let player2score = document.getElementById("player2score").innerText;
+player2score = 0;
 
 // -------------------------------Choosing Corresponding Question from placeHolder.js--------------------------------------------------------- //
 //For loop to search gamboard for class beginning with r + number = row number to then multiply for point value
@@ -107,36 +123,56 @@ for (let i = 1; i < 6; i++) {
     const colClass = divClasses.find((c) => c.startsWith("c"));
     //j is column number
     const j = colClass[1];
-    console.log(j);
-    
-      //variable to use column number to get question from catefory in
-      //placeHolder file 0-9 10-19 20-29 30-39 40-49 50-59
-      const colOffset = (j - 1) * 10;
+   
 
-      //variable to apply round number to placeHolder file to shift early
-      //round to beginning of category set of 10 first half or 2nd
-      const roundOffset = (parseInt(round) - 1) * 5;
-      //variable to allow row number to grab question from the category
-      //in place holder file from 1-5
-      const rowOffset = i - 1;
-      //Accounts for all offsets
-      const offset = colOffset + roundOffset + rowOffset;
-      console.log(placeholderQuestions[offset]);
-      console.log(placeholderQuestions[offset].question);
-      console.log(placeholderQuestions[offset].answer);
-      const currentQuestion = placeholderQuestions[offset].question;
-      const currentAnswer = placeholderQuestions[offset].answer.toLowerCase();
-      //event listener to interpret a mouse click on the gameboard car
+    //variable to use column number to get question from catefory in
+    //placeHolder file 0-9 10-19 20-29 30-39 40-49 50-59
+    const colOffset = (j - 1) * 10;
+
+    //variable to apply round number to placeHolder file to shift early
+    //round to beginning of category set of 10 first half or 2nd
+    const roundOffset = (parseInt(round) - 1) * 5;
+    //variable to allow row number to grab question from the category
+    //in place holder file from 1-5
+    const rowOffset = i - 1;
+    //Accounts for all offsets
+    const offset = colOffset + roundOffset + rowOffset;    
+
+    // console.log(placeholderQuestions[offset].question);
+    // console.log(placeholderQuestions[offset].answer);
+
+    const currentQuestion = placeholderQuestions[offset].question;
+    const currentAnswer = placeholderQuestions[offset].answer.toLowerCase();
+
+    //event listener to interpret a mouse click on the gameboard car
     //and produce an alert that states the category and point
     //value of the question card
     div.addEventListener("click", () => {
       alert(`Category ${j}, worth ₽${i * round + "00"}\n\n\n\n`);
-      window.prompt(`${currentQuestion}`)
-      if (prompt("")) {
-
-      }
-      console.log(currentAnswer)
-
+      var promptAnswer = window.prompt(`${currentQuestion}`);
+      if (promptAnswer.toLowerCase() == currentAnswer.toLowerCase()) {
+        console.log("Correct");
+        console.log(currentPlayer);
+        if ((currentPlayer = "player1")) {
+          
+          console.log(player1score);
+          console.log(player2score);
+          player1score = player1score + i * round * 100;
+          document.getElementById("player1score").textContent=player1score;
+          console.log(player1score);
+          console.log(player2score);
+        } else {
+          player2score = player2score + i * round * 100;
+          document.getElementById("player2score").textContent=player2score;
+        }
+      } else {
+        console.log("Incorrect");
+        switchPlayer()
+          console.log(currentPlayer);
+        
+        }
+      
+      console.log(currentAnswer);
     });
   }
 }
