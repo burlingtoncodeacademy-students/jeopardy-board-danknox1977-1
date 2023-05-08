@@ -2,20 +2,29 @@
 import placeholderQuestions from "./placeholder-questions.js";
 console.log({ placeholderQuestions });
 
-
-
 let currentPlayer = "player1";
 
 
+// Current Player display above gameboard
+let currentPlayerH2 = document.getElementById("currentPlayerH2").innerText
+console.log(currentPlayerH2)
+
+document.getElementById("currentPlayerH2").textContent = "Player 1's Turn";
+console.log(currentPlayerH2)
 
 //switch player function
 function switchPlayer() {
   if (currentPlayer === "player1") {
-  currentPlayer = "player2"
+    currentPlayer = "player2";
+    document.getElementById("currentPlayerH2").textContent = "Player 2's Turn";
   } else {
-    currentPlayer = "player1"
+    currentPlayer = "player1";
+    document.getElementById("currentPlayerH2").textContent = "Player 1's Turn";
   }
 }
+
+
+
 
 //Variables for gameboard cards round 1 Nature (column 1)
 const q1r1c1 = document.getElementsByClassName("q1 r1 c1");
@@ -123,20 +132,21 @@ for (let i = 1; i < 6; i++) {
     const colClass = divClasses.find((c) => c.startsWith("c"));
     //j is column number
     const j = colClass[1];
-   
 
-    //variable to use column number to get question from catefory in
+    //variable to use column number to get question from category in
     //placeHolder file 0-9 10-19 20-29 30-39 40-49 50-59
     const colOffset = (j - 1) * 10;
 
     //variable to apply round number to placeHolder file to shift early
     //round to beginning of category set of 10 first half or 2nd
     const roundOffset = (parseInt(round) - 1) * 5;
+
     //variable to allow row number to grab question from the category
     //in place holder file from 1-5
     const rowOffset = i - 1;
+
     //Accounts for all offsets
-    const offset = colOffset + roundOffset + rowOffset;    
+    const offset = colOffset + roundOffset + rowOffset;
 
     // console.log(placeholderQuestions[offset].question);
     // console.log(placeholderQuestions[offset].answer);
@@ -152,26 +162,33 @@ for (let i = 1; i < 6; i++) {
       var promptAnswer = window.prompt(`${currentQuestion}`);
       if (promptAnswer.toLowerCase() == currentAnswer.toLowerCase()) {
         console.log("Correct");
+        console.log(promptAnswer);
         console.log(currentPlayer);
-        if ((currentPlayer = "player1")) {
-          
-          console.log(player1score);
-          console.log(player2score);
+        if (currentPlayer == "player1") {
           player1score = player1score + i * round * 100;
-          document.getElementById("player1score").textContent=player1score;
-          console.log(player1score);
-          console.log(player2score);
+          document.getElementById("player1score").textContent = "₽" +player1score;
         } else {
           player2score = player2score + i * round * 100;
-          document.getElementById("player2score").textContent=player2score;
+          document.getElementById("player2score").textContent = "₽" +player2score;
         }
+      } else if (promptAnswer == "") {
+        switchPlayer()
+          console.log(currentPlayer)
+        
       } else {
         console.log("Incorrect");
-        switchPlayer()
-          console.log(currentPlayer);
-        
+        console.log(promptAnswer);
+        switchPlayer();
+        console.log(currentPlayer);
+        if (currentPlayer == "player1") {
+          player1score = player1score - i * round * 100;
+          document.getElementById("player1score").textContent = "₽" + player1score;
+        } else {
+          player2score = player2score - i * round * 100;
+          document.getElementById("player2score").textContent = "₽" + player2score;
         }
-      
+      }
+
       console.log(currentAnswer);
     });
   }
