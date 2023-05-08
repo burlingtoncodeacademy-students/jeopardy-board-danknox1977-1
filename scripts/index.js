@@ -8,32 +8,90 @@ console.log({ placeholderQuestions });
 
 // let p2
 
-//Variables for gameboard cards round 1 & 2 Nature
-const rnd1r1c1 = document.getElementsByClassName( "r1" "c1");
-const nature1200 = document.getElementsByClassName("1200 Nature");
-const nature1300 = document.getElementsByClassName("1300 Nature");
-const nature1400 = document.getElementsByClassName("1400 Nature");
-const nature1500 = document.getElementsByClassName("1500 Nature");
-const nature2200 = document.getElementsByClassName("2200 Nature");
-const nature2400 = document.getElementsByClassName("2400 Nature");
-const nature2600 = document.getElementsByClassName("2600 Nature");
-const nature2800 = document.getElementsByClassName("2800 Nature");
-const nature3000 = document.getElementsByClassName("3000 Nature");
+//Variables for gameboard cards round 1 Nature (column 1)
+const q1r1c1 = document.getElementsByClassName("q1 r1 c1");
+const q1r2c1 = document.getElementsByClassName("q1 r2 c1");
+const q1r3c1 = document.getElementsByClassName("q1 r3 c1");
+const q1r4c1 = document.getElementsByClassName("q1 r4 c1");
+const q1r5c1 = document.getElementsByClassName("q1 r5 c1");
 
-//Variables for gameboard cards round 1 & 2 Animals
-const animals1100 = document.getElementsByClassName("1100 Animals");
+//Variables for gameboard cards round 2 Nature (column 1)
+const q2r1c1 = document.getElementsByClassName("q2 r1 c1");
+const q2r2c1 = document.getElementsByClassName("q2 r2 c1");
+const q2r3c1 = document.getElementsByClassName("q2 r3 c1");
+const q2r4c1 = document.getElementsByClassName("q2 r4 c1");
+const q2r5c1 = document.getElementsByClassName("q2 r5 c1");
 
-//Variables for gameboard cards round 1 & 2 Computers
-const computers1100 = document.getElementsByClassName("1100 Computers");
+//Variables for gameboard cards round 1 Animals (column 2)
+const q1r1c2 = document.getElementsByClassName("q1 r1 c2");
+const q1r2c2 = document.getElementsByClassName("q1 r2 c2");
+const q1r3c2 = document.getElementsByClassName("q1 r3 c2");
+const q1r4c2 = document.getElementsByClassName("q1 r4 c2");
+const q1r5c2 = document.getElementsByClassName("q1 r5 c2");
 
-//Variables for gameboard cards round 1 & 2 Mythology
-const mythology1100 = document.getElementsByClassName("1100 Mythology");
+//Variables for gameboard cards round 2 Animals (column 2)
+const q2r1c2 = document.getElementsByClassName("q2 r1 c2");
+const q2r2c2 = document.getElementsByClassName("q2 r2 c2");
+const q2r3c2 = document.getElementsByClassName("q2 r3 c2");
+const q2r4c2 = document.getElementsByClassName("q2 r4 c2");
+const q2r5c2 = document.getElementsByClassName("q2 r5 c2");
 
-//Variables for gameboard cards round 1 & 2 History
-const history1100 = document.getElementsByClassName("1100 History");
+//Variables for gameboard cards round 1 Computers (column 3)
+const q1r1c3 = document.getElementsByClassName("q1 r1 c3");
+const q1r2c3 = document.getElementsByClassName("q1 r2 c3");
+const q1r3c3 = document.getElementsByClassName("q1 r3 c3");
+const q1r4c3 = document.getElementsByClassName("q1 r4 c3");
+const q1r5c3 = document.getElementsByClassName("q1 r5 c3");
 
-//Variables for gameboard cards round 1 & 2 General
-const general100 = document.getElementsByClassName("1100 General");
+//Variables for gameboard cards round 2 Computers (column 3)
+const q2r1c3 = document.getElementsByClassName("q2 r1 c3");
+const q2r2c3 = document.getElementsByClassName("q2 r2 c3");
+const q2r3c3 = document.getElementsByClassName("q2 r3 c3");
+const q2r4c3 = document.getElementsByClassName("q2 r4 c3");
+const q2r5c3 = document.getElementsByClassName("q2 r5 c3");
+
+//Variables for gameboard cards round 1 Mythology (column 4)
+const q1r1c4 = document.getElementsByClassName("q1 r1 c4");
+const q1r2c4 = document.getElementsByClassName("q1 r2 c4");
+const q1r3c4 = document.getElementsByClassName("q1 r3 c4");
+const q1r4c4 = document.getElementsByClassName("q1 r4 c4");
+const q1r5c4 = document.getElementsByClassName("q1 r5 c4");
+
+//Variables for gameboard cards round 2 Mythology (column 4)
+const q2r1c4 = document.getElementsByClassName("q2 r1 c4");
+const q2r2c4 = document.getElementsByClassName("q2 r2 c4");
+const q2r3c4 = document.getElementsByClassName("q2 r3 c4");
+const q2r4c4 = document.getElementsByClassName("q2 r4 c4");
+const q2r5c4 = document.getElementsByClassName("q2 r5 c4");
+
+//Variables for gameboard cards round 1 History (column 5)
+const q1r1c5 = document.getElementsByClassName("q1 r1 c5");
+const q1r2c5 = document.getElementsByClassName("q1 r2 c5");
+const q1r3c5 = document.getElementsByClassName("q1 r3 c5");
+const q1r4c5 = document.getElementsByClassName("q1 r4 c5");
+const q1r5c5 = document.getElementsByClassName("q1 r5 c5");
+
+//Variables for gameboard cards round 2 History (column 5)
+const q2r1c5 = document.getElementsByClassName("q2 r1 c5");
+const q2r2c5 = document.getElementsByClassName("q2 r2 c5");
+const q2r3c5 = document.getElementsByClassName("q2 r3 c5");
+const q2r4c5 = document.getElementsByClassName("q2 r4 c5");
+const q2r5c5 = document.getElementsByClassName("q2 r5 c5");
+
+//Variables for gameboard cards round 1 General (column 6)
+const q1r1c6 = document.getElementsByClassName("q1 r1 c6");
+const q1r2c6 = document.getElementsByClassName("q1 r2 c6");
+const q1r3c6 = document.getElementsByClassName("q1 r3 c6");
+const q1r4c6 = document.getElementsByClassName("q1 r4 c6");
+const q1r5c6 = document.getElementsByClassName("q1 r5 c6");
+
+//Variables for gameboard cards round 2 General (column 6)
+const q2r1c6 = document.getElementsByClassName("q2 r1 c6");
+const q2r2c6 = document.getElementsByClassName("q2 r2 c6");
+const q2r3c6 = document.getElementsByClassName("q2 r3 c6");
+const q2r4c6 = document.getElementsByClassName("q2 r4 c6");
+const q2r5c6 = document.getElementsByClassName("q2 r5 c6");
+
 
 //variable to grab round number from .html pages
 const round = document.getElementById("round-num").innerText;
@@ -50,11 +108,7 @@ for (let i = 1; i < 6; i++) {
     //j is column number
     const j = colClass[1];
     console.log(j);
-    //event listener to interpret a mouse click on the gameboard car
-    //and produce an alert that states the category and point
-    //value of the question card
-    div.addEventListener("click", () => {
-      alert(`Category ${j}, worth ₽${i * round + "00"}`);
+    
       //variable to use column number to get question from catefory in
       //placeHolder file 0-9 10-19 20-29 30-39 40-49 50-59
       const colOffset = (j - 1) * 10;
@@ -70,7 +124,18 @@ for (let i = 1; i < 6; i++) {
       console.log(placeholderQuestions[offset]);
       console.log(placeholderQuestions[offset].question);
       console.log(placeholderQuestions[offset].answer);
-      const currentQuestion = placeholderQuestions[offset].question
+      const currentQuestion = placeholderQuestions[offset].question;
+      const currentAnswer = placeholderQuestions[offset].answer.toLowerCase();
+      //event listener to interpret a mouse click on the gameboard car
+    //and produce an alert that states the category and point
+    //value of the question card
+    div.addEventListener("click", () => {
+      alert(`Category ${j}, worth ₽${i * round + "00"}\n\n\n\n`);
+      window.prompt(`${currentQuestion}`)
+      if (prompt("")) {
+
+      }
+      console.log(currentAnswer)
 
     });
   }
