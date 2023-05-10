@@ -5,19 +5,35 @@ console.log({ placeholderQuestions });
 let currentPlayer = "player1";
 
 // Current Player display above gameboard
-let currentPlayerH2 = document.getElementById("currentPlayerH2").innerText;
+let currentPlayerH2 =
+  document.getElementById("currentPlayerH2").innerText;
+// same but in the modal
+let currentPlayerModal =
+  document.getElementById("currentPlayerModal").innerText;
 
-document.getElementById("currentPlayerH2").textContent = "Player 1's Turn";
+document.getElementById("currentPlayerH2").innerText =
+  "Player 1's Turn";
 
+document.getElementById("currentPlayerModal").innerText =
+  "Player 1's Turn";
 //switch player function
 function switchPlayer() {
+  // for (var i = 0; i < currentPlayerH2.length; i++) {
+
   if (currentPlayer === "player1") {
     currentPlayer = "player2";
-    document.getElementById("currentPlayerH2").textContent = "Player 2's Turn";
+    document.getElementById("currentPlayerH2").textContent =
+      "Player 2's Turn";
+    document.getElementById("currentPlayerModal").textContent =
+      "Player 2's Turn";
   } else {
     currentPlayer = "player1";
-    document.getElementById("currentPlayerH2").textContent = "Player 1's Turn";
+    document.getElementById("currentPlayerH2").textContent =
+      "Player 1's Turn";
+    document.getElementById("currentPlayerModal").textContent =
+      "Player 1's Turn";
   }
+  // }
 }
 
 //player interface modal variable declaration
@@ -248,10 +264,10 @@ for (let i = 1; i < 6; i++) {
         }
       });
       pass.addEventListener("click", () => {
-        console.log(currentPlayer)
-        switchPlayer()
-        console.log(currentPlayer)
-      })
+        console.log(currentPlayer);
+        switchPlayer();
+        console.log(currentPlayer);
+      });
       console.log(currentAnswer);
     });
   }
