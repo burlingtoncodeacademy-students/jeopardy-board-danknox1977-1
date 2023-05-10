@@ -4,13 +4,10 @@ console.log({ placeholderQuestions });
 
 let currentPlayer = "player1";
 
-
 // Current Player display above gameboard
-let currentPlayerH2 = document.getElementById("currentPlayerH2").innerText
-console.log(currentPlayerH2)
+let currentPlayerH2 = document.getElementById("currentPlayerH2").innerText;
 
 document.getElementById("currentPlayerH2").textContent = "Player 1's Turn";
-console.log(currentPlayerH2)
 
 //switch player function
 function switchPlayer() {
@@ -23,8 +20,47 @@ function switchPlayer() {
   }
 }
 
+//player interface modal variable declaration
+const pass = document.getElementById("pass");
+const guess = document.getElementById("guess");
+const playerInput = document.getElementById("player-input");
 
+//pass function
 
+//Guess function
+guess.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
+
+// Get the modal
+const modal = document.getElementById("playerInterface");
+
+// Get the button that opens the modal
+const btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function () {
+  modal.style.display = "block";
+};
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+  modal.style.display = "none";
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+// declaring variable of text inside modal box to contain question data
+let modalTxt = document.getElementById("currentQuestText").innerText;
+modalTxt = "....LOADING....";
 
 //Variables for gameboard cards round 1 Nature (column 1)
 const q1r1c1 = document.getElementsByClassName("q1 r1 c1");
@@ -154,41 +190,58 @@ for (let i = 1; i < 6; i++) {
     const currentQuestion = placeholderQuestions[offset].question;
     const currentAnswer = placeholderQuestions[offset].answer.toLowerCase();
 
-    //event listener to interpret a mouse click on the gameboard car
-    //and produce an alert that states the category and point
-    //value of the question card
-    div.addEventListener("click", () => {
-      alert(`Category ${j}, worth ₽${i * round + "00"}\n\n\n\n`);
-      var promptAnswer = window.prompt(`${currentQuestion}`);
-      if (promptAnswer.toLowerCase() == currentAnswer.toLowerCase()) {
-        console.log("Correct");
-        console.log(promptAnswer);
-        console.log(currentPlayer);
-        if (currentPlayer == "player1") {
-          player1score = player1score + i * round * 100;
-          document.getElementById("player1score").textContent = "₽" +player1score;
-        } else {
-          player2score = player2score + i * round * 100;
-          document.getElementById("player2score").textContent = "₽" +player2score;
-        }
-      } else if (promptAnswer == "") {
-        switchPlayer()
-          console.log(currentPlayer)
-        
-      } else {
-        console.log("Incorrect");
-        console.log(promptAnswer);
-        switchPlayer();
-        console.log(currentPlayer);
-        if (currentPlayer == "player1") {
-          player1score = player1score - i * round * 100;
-          document.getElementById("player1score").textContent = "₽" + player1score;
-        } else {
-          player2score = player2score - i * round * 100;
-          document.getElementById("player2score").textContent = "₽" + player2score;
-        }
-      }
+    //event listener to interpret a mouse click on the gameboard card
 
+    div.addEventListener("click", function handleClick(event) {
+      event.target.classList.add("disabled");
+    });
+
+    //event listener to open modal box for player interface
+    div.addEventListener("click", () => {
+      modal.style.display = "block";
+
+      modalTxt = `Category ${j}, worth ₽${
+        i * round + "00"
+      }\n${currentQuestion}`;
+      document.getElementById("currentQuestText").innerText = modalTxt;
+
+      //playerInput function
+      let promptAnswer = document.getElementById("player-input").value;
+      async await
+      console.log(promptAnswer)
+        if (promptAnswer.toLowerCase() == currentAnswer.toLowerCase()) {
+          console.log("Correct");
+          console.log(promptAnswer);
+          console.log(currentPlayer);
+          if (currentPlayer == "player1") {
+            player1score = player1score + i * round * 100;
+            document.getElementById("player1score").textContent =
+              "₽" + player1score;
+          } else {
+            player2score = player2score + i * round * 100;
+            document.getElementById("player2score").textContent =
+              "₽" + player2score;
+          }
+        } else if (promptAnswer == "") {
+          switchPlayer();
+          console.log(currentPlayer);
+        } else {
+          console.log("Incorrect");
+          console.log(promptAnswer);
+          console.log(currentPlayer);
+          if (currentPlayer == "player1") {
+            player1score = player1score - i * round * 100;
+            document.getElementById("player1score").textContent =
+              "₽" + player1score;
+            console.log(i);
+          } else {
+            player2score = player2score - i * round * 100;
+            document.getElementById("player2score").textContent =
+              "₽" + player2score;
+          }
+          switchPlayer();
+        }
+      
       console.log(currentAnswer);
     });
   }
