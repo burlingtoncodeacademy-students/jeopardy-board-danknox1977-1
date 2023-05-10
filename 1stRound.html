@@ -57,11 +57,33 @@
 
   </div>
 
-  <div class="player-input"><input>User Input</input></div>
+  <!-- <div class="player-input"><input>User Input</input></div>
   <div class="player-buttons">
     <button id="guess"><span>Guess</span></button>
     <button id="pass"><span>Pass</span></button>
+  </div> -->
+  <!-- Trigger/Open The Modal -->
+<button id="myBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div id="playerInterface" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <p><span id ="currentQuestText">....LOADING....</span></p>
+    <div id="player-input"><input type="text">Our Answer</input></div>
+    <div class="player-buttons">
+      <button type="submit" id="guess"><span>Guess</span></button>
+      <button id="pass"><span>Pass</span></button>
+      <span id="currentPlayerH2">Player Turn</span>
+    </div>
+  
+    <span class="close">&times;</span>
+    
   </div>
+
+</div>
+
   <div class="scores">
     <div class="p1score">Player 1 Score:<span id="player1score">0</span></div>
     <div class="p2score">Player 2 Score:<span id="player2score">0</span></div>

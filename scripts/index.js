@@ -23,7 +23,8 @@ function switchPlayer() {
 //player interface modal variable declaration
 const pass = document.getElementById("pass");
 const guess = document.getElementById("guess");
-const playerInput = document.getElementById("player-input");
+let playerInput = document.getElementById("player-input").value;
+playerInput = "";
 
 //pass function
 
@@ -61,6 +62,8 @@ window.onclick = function (event) {
 // declaring variable of text inside modal box to contain question data
 let modalTxt = document.getElementById("currentQuestText").innerText;
 modalTxt = "....LOADING....";
+
+// timer function for modal box delay
 
 //Variables for gameboard cards round 1 Nature (column 1)
 const q1r1c1 = document.getElementsByClassName("q1 r1 c1");
@@ -204,12 +207,14 @@ for (let i = 1; i < 6; i++) {
         i * round + "00"
       }\n${currentQuestion}`;
       document.getElementById("currentQuestText").innerText = modalTxt;
+      guess.addEventListener("click", () => {
+        console.log(promptAnswer);
 
-      //playerInput function
-      let promptAnswer = document.getElementById("player-input").value;
-      async await
-      console.log(promptAnswer)
-        if (promptAnswer.toLowerCase() == currentAnswer.toLowerCase()) {
+        //playerInput function
+        console.log(document.getElementById("player-input").value);
+
+        console.log(promptAnswer);
+        if (promptAnswer.toLowerCase() == currentAnswer) {
           console.log("Correct");
           console.log(promptAnswer);
           console.log(currentPlayer);
@@ -241,7 +246,12 @@ for (let i = 1; i < 6; i++) {
           }
           switchPlayer();
         }
-      
+      });
+      pass.addEventListener("click", () => {
+        console.log(currentPlayer)
+        switchPlayer()
+        console.log(currentPlayer)
+      })
       console.log(currentAnswer);
     });
   }
