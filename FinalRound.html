@@ -24,11 +24,32 @@
 <div class="final-question">
     <span>Final Question съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских булок, да выпей чаю</span>
 </div>
-    <div class="player-input"><span>Wager (₽)</span></div>
-    <div class="player-input"><span>Final Answer</span></div>
+     <!-- <div class="player-input"><input>User Input</input></div>
+  <div class="player-buttons">
+    <button id="guess"><span>Guess</span></button>
+    <button id="pass"><span>Pass</span></button>
+  </div> -->
+  <!-- Trigger/Open The Modal -->
+<button id="myBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div id="playerInterface" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <p><span id ="finalQuestText">....LOADING....</span></p>
+    <input type="input" id="player-input">Our Answer<br>
+    <input type="input" id="wager">
     <div class="player-buttons">
-        <div class="guess"><span>Bet</span>
-        </div>
+      <button type="submit" id="guess"><span>Guess</span></button>
+      <button id="pass"><span>Pass</span></button>
+      <span id="currentPlayerModal">Player Turn</span>
+    </div>
+  
+    <span class="close">&times;</span>
+    
+  </div>
+
 </div>
 <footer>
     <p>Footer Site Information</p>

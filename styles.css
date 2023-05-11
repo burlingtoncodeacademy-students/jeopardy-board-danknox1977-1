@@ -377,7 +377,7 @@ header img {
   width: 14rem;
 }
 #guess:hover {
-  background-image: url("jeopardyproject/jeopardy-board-danknox1977-1/assets/Hwhaaah.jpg");
+  background-image: url("./assets/Hwhaaah.jpg");
 }
 #pass {
   box-sizing: border-box;
