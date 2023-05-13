@@ -159,22 +159,25 @@ const round = document.getElementById("round-num").innerText;
 //variable to declare player1score
 let player1score = document.getElementById("player1score").innerText;
 player1score = 0;
+let player1CurrentScore = 0;
 
 //variable to declare player2score
 let player2score = document.getElementById("player2score").innerText;
 player2score = 0;
 
-//set the initial value of noWins to 0
-localStorage.setItem('player1CurrentScore' , 0)
-if (player1score !== false){
-var player1CurrentScore = parseInt(localStorage.getItem("player1CurrentScore"));
-//increment value
-localStorage.setItem("player1CurrentScore", player1score++)
+//
+function storeP1Score() {
+  if (player1score != JSON.stringify.player1CurrentScore) {
+    player1CurrentScore === player1score;
+   
+  }
 }
-console.log(player1CurrentScore);
-console.log(player1score)
-console.log(player2score)
 
+// player1CurrentScore = localStorage
+localStorage.setItem("player1score", player1score);
+console.log(player1CurrentScore);
+console.log(player1score);
+console.log(player2score);
 
 //variable for keeping track of how many tries a question has had
 let strikes = 0;
@@ -267,20 +270,20 @@ guess.addEventListener("click", () => {
   if (playerInput == currentAnswer) {
     // console.log("Correct");
     currentAnswer = "";
-   
-    
+
     if (currentPlayer == "player1") {
       player1score = player1score + row * round * 100;
       document.getElementById("player1score").textContent = "₽" + player1score;
       console.log(player1CurrentScore);
-      console.log(player1score)
-   
+      console.log(player1score);
+      storeP1Score();
+
       modal.style.display = "none";
       document.getElementById("player-input").value = "";
     } else {
       player2score = player2score + row * round * 100;
       document.getElementById("player2score").textContent = "₽" + player2score;
-      console.log(player2score)
+      console.log(player2score);
       modal.style.display = "none";
       document.getElementById("player-input").value = "";
     }

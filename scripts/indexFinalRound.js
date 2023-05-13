@@ -10,6 +10,10 @@ window.onload = function() {
 
 let currentPlayer = "player1";
 
+//getting player scores from localStorage
+let player1score = localStorage.getItem("player1score")
+console.log(player1score);
+
 // Current Player display above gameboard
 let currentPlayerH2 = document.getElementById("currentPlayerH2").innerText;
 // same but in the modal
@@ -89,9 +93,9 @@ window.onclick = function (event) {
 };
 
 
-//variable to declare player1score
-let player1score = document.getElementById("player1score").innerText;
-player1score = 0;
+// //variable to declare player1score
+// let player1score = document.getElementById("player1score").innerText;
+// player1score = 0;
 
 //variable to declare player2score
 let player2score = document.getElementById("player2score").innerText;
