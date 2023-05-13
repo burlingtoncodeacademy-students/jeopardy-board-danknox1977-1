@@ -56,25 +56,6 @@ btn.onclick = function () {
   modal.style.display = "block";
 };
 
-// final question and input variable declaration
-const p1wagerAmt = document.getElementById("p1wagerAmt");
-const player1WagerButton = document.getElementById("player1WagerButton");
-const p2wageAmt = document.getElementById("p2wageAmt");
-const player2WagerButton = document.getElementById("player2WagerButton");
-const finalQuestText = document.getElementById("finalQuestText");
-const finalQuestCategory = document.getElementById("finalQuestCategory");
-
-//Player wager button prompt and alert confirmation
-player1WagerButton.onclick = function p1WagerPrompt() {
-  let p1wager = prompt("Input the Amount you care to Wager");
-  alert(`You've risked ₽${p1wager}`);
-};
-
-player2WagerButton.onclick = function p2WagerPrompt() {
-  let p2wager = prompt("Input the Amount you care to Wager");
-  alert(`You've risked ₽${p2wager}`);
-};
-
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modal) {
@@ -183,13 +164,25 @@ player1score = 0;
 let player2score = document.getElementById("player2score").innerText;
 player2score = 0;
 
+//set the initial value of noWins to 0
+localStorage.setItem('player1CurrentScore' , 0)
+if (player1score !== false){
+var player1CurrentScore = parseInt(localStorage.getItem("player1CurrentScore"));
+//increment value
+localStorage.setItem("player1CurrentScore", player1score++)
+}
+console.log(player1CurrentScore);
+console.log(player1score)
+console.log(player2score)
+
+
 //variable for keeping track of how many tries a question has had
 let strikes = 0;
 
 //declaring variables for currentQuestion and currentAnswer
 // let currentQuestion = "";
-// let currentAnswer = "";
-
+let currentAnswer = "";
+let row = 1;
 //global variable for current row of question
 // let currentRow = "";
 
@@ -210,28 +203,6 @@ for (let i = 1; i < 6; i++) {
     //j is column number
     const j = colClass[1];
 
-    //variable to use column number to get question from category in
-    //placeHolder file 0-9 10-19 20-29 30-39 40-49 50-59
-    const colOffset = (j - 1) * 10;
-
-    //variable to apply round number to placeHolder file to shift early
-    //round to beginning of category set of 10 first half or 2nd
-    const roundOffset = (parseInt(round) - 1) * 5;
-
-    //variable to allow row number to grab question from the category
-    //in place holder file from 1-5
-    const rowOffset = i - 1;
-
-    //Accounts for all offsets
-    const offset = colOffset + roundOffset + rowOffset;
-
-    // console.log(placeholderQuestions[offset].question);
-    // console.log(placeholderQuestions[offset].answer);
-
-    const currentQuestion = placeholderQuestions[offset].question;
-    let currentAnswer = placeholderQuestions[offset].answer.toLowerCase();
-    // currentRow = i;
-
     //event listener to interpret a mouse click on the gameboard card
 
     div.addEventListener("click", function handleClick(event) {
@@ -240,6 +211,27 @@ for (let i = 1; i < 6; i++) {
 
     //event listener to open modal box for player interface
     div.addEventListener("click", () => {
+      //variable to use column number to get question from category in
+      //placeHolder file 0-9 10-19 20-29 30-39 40-49 50-59
+      const colOffset = (j - 1) * 10;
+      console.log("column offset is " + colOffset);
+      //variable to apply round number to placeHolder file to shift early
+      //round to beginning of category set of 10 first half or 2nd
+      const roundOffset = (parseInt(round) - 1) * 5;
+      console.log("round offset is " + roundOffset);
+      //variable to allow row number to grab question from the category
+      //in place holder file from 1-5
+      const rowOffset = i - 1;
+      console.log("row offset is " + rowOffset);
+      //Accounts for all offsets
+      const offset = colOffset + roundOffset + rowOffset;
+
+      // console.log(placeholderQuestions[offset].question);
+      // console.log(placeholderQuestions[offset].answer);
+
+      const currentQuestion = placeholderQuestions[offset].question;
+      currentAnswer = placeholderQuestions[offset].answer.toLowerCase();
+      row = i;
       modal.style.display = "block";
       console.log("currentQuestion: " + currentQuestion);
       console.log("currentAnswer " + currentAnswer);
@@ -254,92 +246,90 @@ for (let i = 1; i < 6; i++) {
       strikes = 0;
       console.log("currentAnswer " + currentAnswer);
 
-      pass.addEventListener("click", () => {
-        console.log(currentPlayer);
-        switchPlayer();
-        console.log(currentPlayer);
-      });
       console.log("end of code");
     });
   }
-
-  guess.addEventListener("click", () => {
-    // currentAnswer = placeholderQuestions[offset].answer.toLowerCase();
-    // console.log(currentAnswer);
-    // console.log("After guess click currentAnswer: " + currentAnswer);
-    let playerInput = document.getElementById("player-input").value;
-
-    console.log(`${currentPlayer} put in ${playerInput}`);
-    console.log("currentAnswer " + currentAnswer);
-
-    if (playerInput == currentAnswer) {
-      // console.log("Correct");
-      currentAnswer = "";
-
-      if (currentPlayer == "player1") {
-        player1score = player1score + i * round * 100;
-        document.getElementById("player1score").textContent =
-          "₽" + player1score;
-
-        modal.style.display = "none";
-        document.getElementById("player-input").value = "";
-      } else {
-        player2score = player2score + i * round * 100;
-        document.getElementById("player2score").textContent =
-          "₽" + player2score;
-
-        modal.style.display = "none";
-        document.getElementById("player-input").value = "";
-      }
-    } else if (playerInput == "") {
-      switchPlayer();
-      // console.log(currentPlayer);
-    } else {
-      console.log("Incorrect");
-      // console.log(currentPlayer);
-      // console.log(strikes);
-      strikes = strikes + 1;
-      // console.log(strikes);
-
-      if (currentPlayer == "player1") {
-        player1score = player1score - i * round * 100;
-        document.getElementById("player1score").textContent =
-          "₽" + player1score;
-        if (strikes == 1) {
-          switchPlayer();
-          console.log(currentPlayer);
-        } else if (strikes == 2) {
-          switchPlayer();
-          // console.log(currentPlayer);
-          modal.style.display = "none";
-        }
-
-        // document.getElementById("player-input").value = "";
-
-        pass.addEventListener("click", () => {
-          modal.style.display = "none";
-        });
-      } else {
-        player2score = player2score - i * round * 100;
-        document.getElementById("player2score").textContent =
-          "₽" + player2score;
-        if (strikes == 1) {
-          switchPlayer();
-          console.log(currentPlayer);
-        } else if (strikes == 2) {
-          switchPlayer();
-          console.log(currentPlayer);
-          modal.style.display = "none";
-        }
-        // document.getElementById("player-input").value = "";
-        console.log(currentPlayer);
-        // pass.addEventListener("click", () => {
-        //   modal.style.display = "none";
-        // });
-      }
-    }
-  });
 }
+pass.addEventListener("click", () => {
+  console.log(currentPlayer);
+  switchPlayer();
+  console.log(currentPlayer);
+});
+guess.addEventListener("click", () => {
+  // currentAnswer = placeholderQuestions[offset].answer.toLowerCase();
+  // console.log(currentAnswer);
+  // console.log("After guess click currentAnswer: " + currentAnswer);
+  let playerInput = document.getElementById("player-input").value;
+
+  console.log(`${currentPlayer} put in ${playerInput}`);
+  console.log("currentAnswer " + currentAnswer);
+
+  if (playerInput == currentAnswer) {
+    // console.log("Correct");
+    currentAnswer = "";
+   
+    
+    if (currentPlayer == "player1") {
+      player1score = player1score + row * round * 100;
+      document.getElementById("player1score").textContent = "₽" + player1score;
+      console.log(player1CurrentScore);
+      console.log(player1score)
+   
+      modal.style.display = "none";
+      document.getElementById("player-input").value = "";
+    } else {
+      player2score = player2score + row * round * 100;
+      document.getElementById("player2score").textContent = "₽" + player2score;
+      console.log(player2score)
+      modal.style.display = "none";
+      document.getElementById("player-input").value = "";
+    }
+  } else if (playerInput == "") {
+    switchPlayer();
+    // console.log(currentPlayer);
+  } else {
+    console.log("Incorrect");
+    // console.log(currentPlayer);
+    // console.log(strikes);
+    strikes = strikes + 1;
+    // console.log(strikes);
+
+    if (currentPlayer == "player1") {
+      player1score = player1score - row * round * 100;
+      document.getElementById("player1score").textContent = "₽" + player1score;
+      if (strikes == 1) {
+        switchPlayer();
+        console.log(currentPlayer);
+      } else if (strikes == 2) {
+        switchPlayer();
+        // console.log(currentPlayer);
+        modal.style.display = "none";
+      }
+
+      // document.getElementById("player-input").value = "";
+
+      pass.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+    } else {
+      player2score = player2score - row * round * 100;
+      document.getElementById("player2score").textContent = "₽" + player2score;
+      if (strikes == 1) {
+        switchPlayer();
+        console.log(currentPlayer);
+      } else if (strikes == 2) {
+        switchPlayer();
+        console.log(currentPlayer);
+        modal.style.display = "none";
+      }
+      // document.getElementById("player-input").value = "";
+      console.log(currentPlayer);
+      // pass.addEventListener("click", () => {
+      //   modal.style.display = "none";
+      // });
+    }
+  }
+});
 
 // finalQ = placeholderQuestions.category.final.question
 // console.log(finalQ)
