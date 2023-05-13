@@ -56,9 +56,23 @@ btn.onclick = function () {
   modal.style.display = "block";
 };
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-  modal.style.display = "none";
+// final question and input variable declaration
+const p1wagerAmt = document.getElementById("p1wagerAmt");
+const player1WagerButton = document.getElementById("player1WagerButton");
+const p2wageAmt = document.getElementById("p2wageAmt");
+const player2WagerButton = document.getElementById("player2WagerButton");
+const finalQuestText = document.getElementById("finalQuestText");
+const finalQuestCategory = document.getElementById("finalQuestCategory");
+
+//Player wager button prompt and alert confirmation
+player1WagerButton.onclick = function p1WagerPrompt() {
+  let p1wager = prompt("Input the Amount you care to Wager");
+  alert(`You've risked ₽${p1wager}`);
+};
+
+player2WagerButton.onclick = function p2WagerPrompt() {
+  let p2wager = prompt("Input the Amount you care to Wager");
+  alert(`You've risked ₽${p2wager}`);
 };
 
 // When the user clicks anywhere outside of the modal, close it
@@ -185,13 +199,11 @@ let strikes = 0;
 // console.log("before loop currentQuestion: " + currentQuestion);
 // console.log("before loop currentAnswer " + currentAnswer);
 
-
 for (let i = 1; i < 6; i++) {
-
   for (const div of document.querySelectorAll(`.r${i}`)) {
     //variable that creates a list of the class name seperated into indivicual characters
+
     const divClasses = div.className.split(" ");
-   
 
     //variable that finds the column number from the class name, the number following the 'c'
     const colClass = divClasses.find((c) => c.startsWith("c"));
@@ -209,18 +221,16 @@ for (let i = 1; i < 6; i++) {
     //variable to allow row number to grab question from the category
     //in place holder file from 1-5
     const rowOffset = i - 1;
-    
+
     //Accounts for all offsets
     const offset = colOffset + roundOffset + rowOffset;
-    
 
     // console.log(placeholderQuestions[offset].question);
     // console.log(placeholderQuestions[offset].answer);
 
-     const currentQuestion = placeholderQuestions[offset].question;
-     let currentAnswer = placeholderQuestions[offset].answer.toLowerCase();
+    const currentQuestion = placeholderQuestions[offset].question;
+    let currentAnswer = placeholderQuestions[offset].answer.toLowerCase();
     // currentRow = i;
-  
 
     //event listener to interpret a mouse click on the gameboard card
 
@@ -250,9 +260,7 @@ for (let i = 1; i < 6; i++) {
         console.log(currentPlayer);
       });
       console.log("end of code");
-      
     });
-    
   }
 
   guess.addEventListener("click", () => {
@@ -260,24 +268,26 @@ for (let i = 1; i < 6; i++) {
     // console.log(currentAnswer);
     // console.log("After guess click currentAnswer: " + currentAnswer);
     let playerInput = document.getElementById("player-input").value;
-  
+
     console.log(`${currentPlayer} put in ${playerInput}`);
     console.log("currentAnswer " + currentAnswer);
-  
+
     if (playerInput == currentAnswer) {
       // console.log("Correct");
       currentAnswer = "";
-  
+
       if (currentPlayer == "player1") {
         player1score = player1score + i * round * 100;
-        document.getElementById("player1score").textContent = "₽" + player1score;
-  
+        document.getElementById("player1score").textContent =
+          "₽" + player1score;
+
         modal.style.display = "none";
         document.getElementById("player-input").value = "";
       } else {
         player2score = player2score + i * round * 100;
-        document.getElementById("player2score").textContent = "₽" + player2score;
-  
+        document.getElementById("player2score").textContent =
+          "₽" + player2score;
+
         modal.style.display = "none";
         document.getElementById("player-input").value = "";
       }
@@ -290,10 +300,11 @@ for (let i = 1; i < 6; i++) {
       // console.log(strikes);
       strikes = strikes + 1;
       // console.log(strikes);
-  
+
       if (currentPlayer == "player1") {
         player1score = player1score - i * round * 100;
-        document.getElementById("player1score").textContent = "₽" + player1score;
+        document.getElementById("player1score").textContent =
+          "₽" + player1score;
         if (strikes == 1) {
           switchPlayer();
           console.log(currentPlayer);
@@ -302,15 +313,16 @@ for (let i = 1; i < 6; i++) {
           // console.log(currentPlayer);
           modal.style.display = "none";
         }
-  
+
         // document.getElementById("player-input").value = "";
-  
+
         pass.addEventListener("click", () => {
           modal.style.display = "none";
         });
       } else {
         player2score = player2score - i * round * 100;
-        document.getElementById("player2score").textContent = "₽" + player2score;
+        document.getElementById("player2score").textContent =
+          "₽" + player2score;
         if (strikes == 1) {
           switchPlayer();
           console.log(currentPlayer);
@@ -327,13 +339,15 @@ for (let i = 1; i < 6; i++) {
       }
     }
   });
-  
-
 }
 
-finalQ = placeholderQuestions.category.final.question
-console.log(finalQ)
+// finalQ = placeholderQuestions.category.final.question
+// console.log(finalQ)
 
 const catA = document.getElementsByClassName("catA");
 
 catA.textContent = placeholderQuestions[0].category;
+
+// category: "Final",
+// question: "What name was the bootcamp formerly known as?",
+// answer: "Burlington Code Academy",

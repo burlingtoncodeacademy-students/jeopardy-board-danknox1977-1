@@ -4,55 +4,57 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <title>свобода (Final Jeopardy)</title>
   </head>
   <body>
-  
-    <!-- Do not change the script source. Allows import/export to work. -->
-    <script src="./scripts/index.js" type="module"></script>
-    
-     <Header>
-        <h1>Final Round</h1>
-            <h2>Player Turn</h2>  
-    </Header>
+    <header>
+      <h1>Final Round</h1>
+      <h2><span id="currentPlayerH2">Player Turn</span></h2>
+    </header>
 
-<div class="final">
-    <span>Category: Aviation</span>
-</div>
-
-<div class="final-question">
-    <span>Final Question съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских булок, да выпей чаю</span>
-</div>
-     <!-- <div class="player-input"><input>User Input</input></div>
-  <div class="player-buttons">
-    <button id="guess"><span>Guess</span></button>
-    <button id="pass"><span>Pass</span></button>
-  </div> -->
-  <!-- Trigger/Open The Modal -->
-<button id="myBtn">Open Modal</button>
-
-<!-- The Modal -->
-<div id="playerInterface" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <p><span id ="finalQuestText">....LOADING....</span></p>
-    <input type="input" id="player-input">Our Answer<br>
-    <input type="input" id="wager">
-    <div class="player-buttons">
-      <button type="submit" id="guess"><span>Guess</span></button>
-      <button id="pass"><span>Pass</span></button>
-      <span id="currentPlayerModal">Player Turn</span>
+    <div class="final">
+      <span id="finalQuestCategory">Category: Aviation</span>
     </div>
-  
-    <span class="close">&times;</span>
-    
-  </div>
 
-</div>
-<footer>
-    <p>Footer Site Information</p>
-</footer>
+    <div class="final-question">
+      <span
+        >съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих
+        мягких французских булок, да выпей чаю съешь ещё этих мягких французских
+        булок, да выпей чаю</span
+      >
+    </div>
+
+    <div class="player-buttons">
+      <button id="player1WagerButton"><span>Player 1 Wager</span></button>
+      <button id="player2WagerButton"><span>Player 2 Wager</span></button>
+    </div>
+    <div class="scores">
+      <div class="p1score">Player 1 Score:<span id="player1score">0</span></div>
+      <div class="p1wager">Amount Wagered:<span id="p1wagerAmt">0</span></div>
+      <div class="p2score">Player 2 Score:<span id="player2score">0</span></div>
+      <div class="p1wager">Amount Wagered:<span id="p1wagerAmt">0</span></div>
+    </div>
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">Open Modal</button>
+
+    <!-- The Modal -->
+    <div id="playerInterface" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <p><span id="finalQuestText">....LOADING....</span></p>
+        <input type="input" id="player-input" />Our Answer<br />
+        <div class="player-buttons">
+          <button type="submit" id="guess"><span>Guess</span></button>
+
+          <button id="pass"><span>Pass</span></button>
+          <span id="currentPlayerModal">Player Turn</span>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>Footer Site Information</p>
+    </footer>
+    <script src="./scripts/index.js" type="module"></script>
   </body>
 </html>
