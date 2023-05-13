@@ -331,6 +331,8 @@ for (let i = 1; i < 6; i++) {
 
 }
 
+finalQ = placeholderQuestions.category.final.question
+console.log(finalQ)
 
 const catA = document.getElementsByClassName("catA");
 
