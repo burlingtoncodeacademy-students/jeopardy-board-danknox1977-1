@@ -179,3 +179,6 @@ guess.addEventListener("click", () => {
     }
   });
 
+// category: "Final",
+// question: "What name was the bootcamp formerly known as?",
+// answer: "Burlington Code Academy",

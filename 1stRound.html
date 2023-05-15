@@ -81,12 +81,12 @@
     <div class="scores">
       <div class="p1score">Player 1 Score:<span id="player1score">0</span></div>
       <div class="p2score">Player 2 Score:<span id="player2score">0</span></div>
-      <script>
+      <!-- <script>
         localStorage.setItem("player1score", player1score);
         localStorage.setItem("player2score", player2score);
-      </script>
+      </script> -->
     </div>
-    <button id="round-advance"><a href="2ndRound.html?player1score=player1score.textContent&player2score=player2score.textContent">Next Round</a></button>
+    <button id="round-advance"><a href="2ndRound.html?player1score=${player1score}&player2score=${player2score}">Next Round</a></button>
     <footer>
       <p>Footer Site Information</p>
     </footer>

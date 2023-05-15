@@ -174,10 +174,10 @@ function storeP1Score() {
 }
 
 // player1CurrentScore = localStorage
-localStorage.setItem("player1score", player1score);
-console.log(player1CurrentScore);
-console.log(player1score);
-console.log(player2score);
+// localStorage.setItem("player1score", player1score);
+// console.log(player1CurrentScore);
+// console.log(player1score);
+// console.log(player2score);
 
 //variable for keeping track of how many tries a question has had
 let strikes = 0;
@@ -217,20 +217,19 @@ for (let i = 1; i < 6; i++) {
       //variable to use column number to get question from category in
       //placeHolder file 0-9 10-19 20-29 30-39 40-49 50-59
       const colOffset = (j - 1) * 10;
-      console.log("column offset is " + colOffset);
+    
       //variable to apply round number to placeHolder file to shift early
       //round to beginning of category set of 10 first half or 2nd
       const roundOffset = (parseInt(round) - 1) * 5;
-      console.log("round offset is " + roundOffset);
+ 
       //variable to allow row number to grab question from the category
       //in place holder file from 1-5
       const rowOffset = i - 1;
-      console.log("row offset is " + rowOffset);
+
       //Accounts for all offsets
       const offset = colOffset + roundOffset + rowOffset;
 
-      // console.log(placeholderQuestions[offset].question);
-      // console.log(placeholderQuestions[offset].answer);
+    
 
       const currentQuestion = placeholderQuestions[offset].question;
       currentAnswer = placeholderQuestions[offset].answer.toLowerCase();
@@ -259,16 +258,14 @@ pass.addEventListener("click", () => {
   console.log(currentPlayer);
 });
 guess.addEventListener("click", () => {
-  // currentAnswer = placeholderQuestions[offset].answer.toLowerCase();
-  // console.log(currentAnswer);
-  // console.log("After guess click currentAnswer: " + currentAnswer);
+
   let playerInput = document.getElementById("player-input").value;
 
   console.log(`${currentPlayer} put in ${playerInput}`);
   console.log("currentAnswer " + currentAnswer);
 
   if (playerInput == currentAnswer) {
-    // console.log("Correct");
+
     currentAnswer = "";
 
     if (currentPlayer == "player1") {
@@ -289,7 +286,7 @@ guess.addEventListener("click", () => {
     }
   } else if (playerInput == "") {
     switchPlayer();
-    // console.log(currentPlayer);
+  
   } else {
     console.log("Incorrect");
     // console.log(currentPlayer);
@@ -305,11 +302,11 @@ guess.addEventListener("click", () => {
         console.log(currentPlayer);
       } else if (strikes == 2) {
         switchPlayer();
-        // console.log(currentPlayer);
+     
         modal.style.display = "none";
       }
 
-      // document.getElementById("player-input").value = "";
+    
 
       pass.addEventListener("click", () => {
         modal.style.display = "none";
@@ -325,7 +322,7 @@ guess.addEventListener("click", () => {
         console.log(currentPlayer);
         modal.style.display = "none";
       }
-      // document.getElementById("player-input").value = "";
+     
       console.log(currentPlayer);
       // pass.addEventListener("click", () => {
       //   modal.style.display = "none";
@@ -334,13 +331,8 @@ guess.addEventListener("click", () => {
   }
 });
 
-// finalQ = placeholderQuestions.category.final.question
-// console.log(finalQ)
 
 const catA = document.getElementsByClassName("catA");
 
 catA.textContent = placeholderQuestions[0].category;
 
-// category: "Final",
-// question: "What name was the bootcamp formerly known as?",
-// answer: "Burlington Code Academy",
