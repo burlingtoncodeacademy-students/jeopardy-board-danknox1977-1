@@ -2,11 +2,6 @@
 import placeholderQuestions from "./placeholder-questions.js";
 console.log({ placeholderQuestions });
 
-//to share player score information to other Html Pages
-window.onload = function() {
-    var getInput = prompt("Hey type something here: ");
-    localStorage.setItem("storageName",getInput);
- }
 
 let currentPlayer = "player1";
 

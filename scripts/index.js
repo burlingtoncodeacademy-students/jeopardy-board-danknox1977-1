@@ -28,6 +28,23 @@ function switchPlayer() {
   }
 }
 
+const roundAdvance = document.getElementById("round-advance")
+roundAdvance.addEventListener('click', () => {
+  console.log("clicked")
+
+  window.location.href=`2ndRound.html?player1score=${player1score}&player2score=${player2score}`
+  
+})
+
+const finalRoundAdvance = document.getElementById("final-round-advance")
+finalRoundAdvance.addEventListener('click', () => {
+  console.log("clicked")
+
+  window.location.href=`FinalRound.html?player1score=${player1score}&player2score=${player2score}`
+  
+})
+
+
 //playerGuess function aka when they hit the guess button
 function playerGuess() {}
 
@@ -164,6 +181,15 @@ let player1CurrentScore = 0;
 //variable to declare player2score
 let player2score = document.getElementById("player2score").innerText;
 player2score = 0;
+
+
+const queryString = new URLSearchParams(window.location.search)
+if (queryString.get("player1score")) {
+player1score = queryString.get("player1score")
+document.getElementById("player1score").textContent = "₽" + player1score;
+player2score = queryString.get("player2score")
+document.getElementById("player2score").textContent = "₽" + player2score;
+}
 
 //
 function storeP1Score() {
